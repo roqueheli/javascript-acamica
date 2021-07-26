@@ -1,4 +1,4 @@
-let personas = [{
+   let personas = [{
     nombre: "Jhony",
     asistente: null,
     seccion: "gold",
@@ -37,8 +37,8 @@ let personas = [{
 
 console.clear();
 
-function asistentes(listaPersonas) {
-  /**
+const asistentes = (listaPersonas) => listaPersonas.filter(({ asistente }) => { 
+    /**
    * Esta fución debe calcular el total de asistentes
    * según una lista de personas.
    *
@@ -47,12 +47,10 @@ function asistentes(listaPersonas) {
    *
    * La función debe retornar el número de asistencias.
    */
-  const personasAsistentes = listaPersonas.filter(
-    (invitado) => invitado.asistente === true
-  );
-
-  return (listaPersonas = personasAsistentes.length);
-}
+  if (asistente === true) {
+    return (listaPersonas = asistente.length);
+  };
+});
 
 // La implementación debe ser:
 let totalAsistentes = asistentes(personas);
@@ -64,8 +62,7 @@ console.log(totalAsistentes); // debe ser 3
 // Es decir, que tengan la propiedad “asistente”
 // dentro de su objeto, y que esta sea igual
 // a “true”.
-const personasAsistentes = (arrayPersonas) =>
-  arrayPersonas.filter((invitado) => invitado.asistente === true);
+const personasAsistentes = (arrayPersonas) => arrayPersonas.filter(({ asistente }) => asistente === true);
 
 let listaAsistente = personasAsistentes(personas);
 console.log(listaAsistente);
@@ -73,8 +70,7 @@ console.log(listaAsistente);
 // 3. Además, desarrolla una función que
 // te permite crear un nuevo array que tenga
 // solo las personas de la sección “platino”.
-const personasPlatino = (arrayPersonas) =>
-  arrayPersonas.filter((invitado) => invitado.seccion === "platino");
+const personasPlatino = (arrayPersonas) => arrayPersonas.filter(({ seccion }) => seccion === "platino");
 
 let listaPlatino = personasPlatino(personas);
 console.log(listaPlatino);
@@ -91,7 +87,7 @@ console.log(speakers);
 
 let arregloNumeros = [1, 2, 3, 4, 5];
 
-const numerosX2 = (arregloNumeros) => arregloNumeros.map((numeros) => numeros * 2);
+const numerosX2 = (arregloNumeros) => arregloNumeros.map(({ numeros }) => numeros * 2);
 console.log(numerosX2(arregloNumeros));
 
 let personas2 = [{
@@ -108,9 +104,9 @@ let personas2 = [{
   }
 ];
 
-const soloNombres = (personas) => personas.map((elemento) => {
+const soloNombres = (personas) => personas.map(({ nombre }) => {
   return {
-    nombre: elemento.nombre
+    nombre: nombre
   }
 });
 console.log(soloNombres(personas2));
